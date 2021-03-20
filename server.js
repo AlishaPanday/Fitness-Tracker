@@ -1,12 +1,14 @@
 const express = require("express");
-const mongojs = require("mongojs");
-const { Mongoose } = require("mongoose");
-
+const mongoose  = require("mongoose");
 //library that logs data
 //express middleware
 //everytimes when server breaks or throws exception, morgan logs it automatically
 //below creating instance for morgan
 const logger = require("morgan");
+
+
+const PORT = process.env.PORT || 3000;
+
 
 const app = express();
 
@@ -17,12 +19,19 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-Mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userdb",{ useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout",
+{ useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+  
+});
+
+//routes 
+
 
 // connecting to database
 //creating new instance of mongoDB using mongojs library
-const db = mongojs(databaseUrl, collections);
-db.on("error",error => {
-    console.log("Database error:", error);
-});
-
+app.listen(PORT, ()=> {
+    console.log(`App running on port ${PORT} `);
+})
