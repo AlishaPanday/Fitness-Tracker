@@ -27,6 +27,6 @@ const Fitness = new Schema({
 });
 
 //model represents structure of the document
-const workout = mongoose.model("workout", Fitness);
+const workout = mongoose.model("Workout", Fitness);
 module.exports = workout;
 
