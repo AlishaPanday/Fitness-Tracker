@@ -2,7 +2,7 @@ let mongoose = require("mongoose");
 let db = require("../models");
 
 //connecting to mongodb using mongoose
-mongoose.connect("mongodb://localhost/workout_db", {
+mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });

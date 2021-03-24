@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const Fitness = new Schema({
     day: { type: Date, default: Date.now },
 
-    excercises: [
+    exercises: [
         {
             type: { 
                 type: String, 

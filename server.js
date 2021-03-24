@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout",
 });
 
 //routes 
-// app.use(require("./routes/apiRoutes"));
+app.use(require("./routes/apiRoutes"));
 app.use(require("./routes/htmlRoutes"));
 
 
@@ -37,4 +37,4 @@ app.use(require("./routes/htmlRoutes"));
 //creating new instance of mongoDB using mongojs library
 app.listen(PORT, ()=> {
     console.log(`App running on port ${PORT} `);
-})
+});
