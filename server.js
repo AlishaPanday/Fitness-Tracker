@@ -5,31 +5,40 @@ const mongoose  = require("mongoose");
 //everytimes when server breaks or throws exception, morgan logs it automatically
 //below creating instance for morgan
 const logger = require("morgan");
-
-
+const {connect} = require('./database/connect');
+require('dotenv').config()
 const PORT = process.env.PORT || 3000;
-
+connect();
 
 const app = express();
-
-app.use(logger("dev"));
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+app.use(logger("dev"));
+
+
+
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout",
-{ useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
+// mongoose.connect(process.env.MONGODB_Fitness || "mongodb://localhost/workout",
+// { useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
   
-});
-
+// });
 //routes 
-app.use(require("./routes/apiRoutes"));
 app.use(require("./routes/htmlRoutes"));
+app.use(require("./routes/apiRoutes"));
+
+
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    console.log("we are connected");
+});
 
 
 
