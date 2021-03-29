@@ -5,6 +5,12 @@ This workout tracker  app will help you to keep track of your fitness goal.
 ```
 ## Deployed Link
 
+Heroku Link: <br  />
+https://fitness-tracker0017.herokuapp.com/?id=6061d09499d8f500156956e9 <br  />
+Github Link: <br  />
+https://github.com/AlishaPanday/Fitness-Tracker <br  />
+
+
 
 ## User story
 ```
@@ -32,3 +38,5 @@ View the total duration of each workout from the past seven workouts on the `sta
 ```
 
 ## Mock-up images
+![Fitness](https://user-images.githubusercontent.com/72904217/112841505-22b94b00-90d3-11eb-844c-e1e4a1d795b6.PNG)
+![fitness2](https://user-images.githubusercontent.com/72904217/112841517-25b43b80-90d3-11eb-8a4f-67dc7909c57f.PNG)
